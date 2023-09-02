@@ -4,6 +4,9 @@ pipeline {
         // deploy everything (but idempotency is managed)
         string(name: 'DEPLOY', defaultValue: "gpa")
     }
+    environment {
+      SMAVSUP_SP_HOST = "smavsupgw"
+    }
     stages {
         stage('CHECKOUT INPUT FILE') {
             steps {
@@ -12,6 +15,7 @@ pipeline {
                 sh' cat data.txt'
                 sh' echo "my first pipeline"'
                 sh' echo "${DEPLOY}"'
+                sh' echo "${env.SMAVSUP_SP_HOST}"'
             }
         }
     }
