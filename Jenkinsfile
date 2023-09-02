@@ -1,6 +1,9 @@
 pipeline {
     agent any
-
+    parameters {
+        // deploy everything (but idempotency is managed)
+        string(name: 'DEPLOY', defaultValue: "gpa")
+    }
     stages {
         stage('CHECKOUT INPUT FILE') {
             steps {
@@ -8,6 +11,7 @@ pipeline {
                 sh' echo "input data:"'
                 sh' cat data.txt'
                 sh' echo "my first pipeline"'
+                sh' echo "${DEPLOY}"'
             }
         }
     }
