@@ -9,10 +9,11 @@ pipeline {
     }
     stage ('Set environment') {
         steps {
-            script 
+            script {
                   // following values are set in setEnv script and if not defined as parameters are set to unwanted default values
                   env.SMAVSUP_SP_HOST = "ID_${DEPLOY}"
     }
+        }}
     stages {
         stage('CHECKOUT INPUT FILE') {
             steps {
