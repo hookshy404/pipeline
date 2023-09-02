@@ -4,9 +4,9 @@ pipeline {
         // deploy everything (but idempotency is managed)
         string(name: 'DEPLOY', defaultValue: "gpa")
     }
-    environment {
-      SMAVSUP_SP_HOST = "smavsupgw"
-    }
+    //environment {
+      //SMAVSUP_SP_HOST = "smavsupgw"
+    //}
     stage ('Set environment') {
         steps { // following values are set in setEnv script and if not defined as parameters are set to unwanted default values
                   env.SMAVSUP_SP_HOST = "ID_${DEPLOY}"
@@ -19,7 +19,7 @@ pipeline {
                 sh' cat data.txt'
                 sh' echo "my first pipeline"'
                 sh' echo "${DEPLOY}"'
-                sh' echo "${env.SMAVSUP_SP_HOST}"'
+                //sh' echo "${env.SMAVSUP_SP_HOST}"'
             }
         }
     }
