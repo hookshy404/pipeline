@@ -33,6 +33,7 @@ pipeline {
                         sh( label: 'test', script:
                            """
                            echo "${FAS_IOC_SWC}"
+                           cat fas.yml
                            """
                            )
                 }//with env
