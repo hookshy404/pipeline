@@ -19,8 +19,10 @@ pipeline {
                 sh' cat data.txt'
                 sh' echo "my first pipeline"'
                 sh' echo "${DEPLOY}"'
-                //sh' echo "${env.SMAVSUP_SP_HOST}"'
+                sh' echo "${SMAVSUP_SP_HOST}"'
+                sh' echo "### env ###"'
                 sh' printenv'
+                sh' echo "### env ###"'
             }
         }
     }
