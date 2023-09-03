@@ -30,7 +30,11 @@ pipeline {
         stage('with env'){
             steps {
                 withEnv([ "FAS_IOC_SWC= MyOpcUa" ]) {
-                        sh' echo "${FAS_IOC_SWC}"'
+                        sh( label: 'test', script:
+                           """
+                           echo "${FAS_IOC_SWC}"
+                           """
+                           )
                 }//with env
                 
             }
