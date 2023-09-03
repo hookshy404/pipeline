@@ -34,7 +34,7 @@ pipeline {
                            """
                            echo "${FAS_IOC_SWC}"
                            cat fas.yml
-                           envsubst '\${IOC_INSTANCE_PREFIX}' < ./fas.yml > ./fas.yml"
+                           //envsubst '\${IOC_INSTANCE_PREFIX}' < ./fas.yml > ./fas.yml"
                            """
                            )
                 }//with env
