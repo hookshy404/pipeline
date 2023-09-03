@@ -6,6 +6,7 @@ pipeline {
     }
     environment {
       SMAVSUP_SP_HOST = "smavsupgw"
+        FAS_IOC_SWC = ""
     }
     //stage ('Set environment') {
         //steps { // following values are set in setEnv script and if not defined as parameters are set to unwanted default values
@@ -24,6 +25,14 @@ pipeline {
                 sh' echo "### env ###"'
                 sh' printenv'
                 sh' echo "### env ###"'
+            }
+        }
+        stage('with env'){
+            steps {
+                withEnv([ "FAS_IOC_SWC= MyOpcUa" ]) {
+                        sh' echo "${FAS_IOC_SWC}"'
+                }//with env
+                
             }
         }
     }
